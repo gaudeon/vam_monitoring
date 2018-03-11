@@ -1,0 +1,41 @@
+{
+  "name": "vam_monitoring",
+  "version": "1.0.0",
+  "description": "Visual / Audio / Motion Monitoring",
+  "main": "src/server.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run dev-client && npm run dev-server",
+    "dev-server": "node src/server.js",
+    "dev-client": "webpack-dev-server --mode development --config conf/webpack.config.js --open",
+    "build-client": "webpack --mode production --config conf/webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gaudeon/vam_monitoring.git"
+  },
+  "author": "Travis Chase",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gaudeon/vam_monitoring/issues"
+  },
+  "homepage": "https://github.com/gaudeon/vam_monitoring#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "file-loader": "^1.1.11",
+    "pm2": "^2.10.1",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.11",
+    "webpack-dev-server": "^3.1.1"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "mic": "^2.1.2",
+    "wiring-pi": "^2.2.1"
+  }
+}
