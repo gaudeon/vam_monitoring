@@ -5,7 +5,24 @@
         <title>VAM</title>
     </head>
     <body>
-        <div id="root"></div>
-        <script defer src="dist/client.js"></script>
+        <app></app>
+        <button type="button" id="" class="btn btn-info start" onclick="startStream()">Start Camera</button>
+ 
+  <div class="row">
+    <img src="" id="stream">
+  </div>
+        <script src="/socket.io/socket.io.js"></script>
+  <script>
+  var socket = io();
+  socket.on('liveStream', function(url) {
+    $('#stream').attr('src', url);
+    $('.start').hide();
+  });
+ 
+  function startStream() {
+    socket.emit('start-stream');
+    $('.start').hide();
+  }
+  </script>
     </body>
 </html>

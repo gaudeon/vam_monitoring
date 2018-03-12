@@ -8,9 +8,13 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run dev-client && npm run dev-server",
-    "dev-server": "node src/server/server.js",
-    "dev-client": "webpack-dev-server --mode development --config conf/webpack.config.js --open",
+    "start": "npm run start-dev-client && npm run start-dev-server",
+    "stop": "npm run stop-dev-client && npm run stop-dev-server",
+    "list": "node_modules/pm2/bin/pm2 list",
+    "start-dev-server": "node_modules/pm2/bin/pm2 start src/server/server.js --watch --name vam-server",
+    "stop-dev-server": "node_modules/pm2/bin/pm2 stop vam-server && node_modules/pm2/bin/pm2 delete vam-server",
+    "start-dev-client": "node_modules/pm2/bin/pm2 start webpack-dev-server --name vam-client -- --mode development --config conf/webpack.config.js --open --hot",
+    "stop-dev-client": "node_modules/pm2/bin/pm2 stop vam-client && node_modules/pm2/bin/pm2 delete vam-client",
     "build-client": "webpack --mode production --config conf/webpack.config.js"
   },
   "repository": {
@@ -30,9 +34,14 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.10",
     "file-loader": "^1.1.11",
+    "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.0.6",
     "pm2": "^2.10.1",
+    "style-loader": "^0.20.3",
+    "vue-html-loader": "^1.2.4",
+    "vue-loader": "^14.2.1",
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.11",
     "webpack-dev-server": "^3.1.1"
@@ -40,6 +49,7 @@
   "dependencies": {
     "express": "^4.16.2",
     "mic": "^2.1.2",
+    "socket.io": "^2.0.4",
     "vue": "^2.5.15",
     "wiring-pi": "^2.2.1"
   }

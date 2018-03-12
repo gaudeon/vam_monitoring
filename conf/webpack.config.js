@@ -21,17 +21,27 @@ const config = {
             {
                 test: /\.html$/,
                 use: {
-                    loader: "file-loader"
+                    loader: "html-loader"
+                }
+            },
+            {
+                test: /\.vue$/,
+                use: {
+                    loader: "vue-loader"
                 }
             }
         ]
     },
     plugins: [
         new HtmlWebPackPlugin({
-            template: path.join(__dirname, "..", "src/client/index.html"),
-            filename: "./index.html"
+            template: path.join(__dirname, "..", "src/client/index.html")
         })
-    ]
+    ],
+    vue: {
+        loaders: {
+            js: 'babel'
+        }
+    }
 };
 
 module.exports = config;
