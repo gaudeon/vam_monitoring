@@ -1,10 +1,13 @@
+const path = require('path');
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+
 const config = {
     entry: {
-        client: "./src/client.js",
+        client: path.join(__dirname, "..", "src/client/client.js"),
     },
     output: {
         filename: "[name].js",
-        path: __dirname + "/dist"
+        path: path.join(__dirname, "dist")
     },
     module: {
         rules: [
@@ -24,6 +27,10 @@ const config = {
         ]
     },
     plugins: [
+        new HtmlWebPackPlugin({
+            template: path.join(__dirname, "..", "src/client/index.html"),
+            filename: "./index.html"
+        })
     ]
 };
 

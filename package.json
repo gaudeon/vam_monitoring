@@ -2,14 +2,14 @@
   "name": "vam_monitoring",
   "version": "1.0.0",
   "description": "Visual / Audio / Motion Monitoring",
-  "main": "src/server.js",
+  "main": "src/server/server.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run dev-client && npm run dev-server",
-    "dev-server": "node src/server.js",
+    "dev-server": "node src/server/server.js",
     "dev-client": "webpack-dev-server --mode development --config conf/webpack.config.js --open",
     "build-client": "webpack --mode production --config conf/webpack.config.js"
   },
@@ -26,8 +26,12 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.0.6",
     "pm2": "^2.10.1",
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.11",
@@ -36,6 +40,7 @@
   "dependencies": {
     "express": "^4.16.2",
     "mic": "^2.1.2",
+    "vue": "^2.5.15",
     "wiring-pi": "^2.2.1"
   }
 }
