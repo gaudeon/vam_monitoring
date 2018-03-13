@@ -26,9 +26,9 @@
   <script src="/socket.io/socket.io.js"></script>
   <script>
   var socket = io();
-  socket.on('liveStream', function(url) {
-    console.log(url);
-    $('#stream').attr('src', url);
+  socket.on('liveStream', function(data) {
+    $('#stream').attr('src', data.image);
+    $('#motion').text(data.motion ? 'Yes' : 'No');
     $('.start').hide();
   });
  
@@ -40,18 +40,12 @@
 </head>
  
 <body class="container">
-  <h1 class="text-center">My Aquarium
-    <small>Powered by PI</small>
-  </h1>
- 
-  <hr>
- 
-  <button type="button" id="" class="btn btn-info start" onclick="startStream()">Start Camera</button>
- 
   <div class="row">
+    Motion Detected? <span id="motion">No</span>
     <img src="" id="stream">
   </div>
  
+  <button type="button" id="" class="btn btn-info start" onclick="startStream()">Start Camera</button>
 </body>
  
 </html>

@@ -8,14 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run start-dev-client && npm run start-dev-server",
-    "stop": "npm run stop-dev-client && npm run stop-dev-server",
-    "list": "node_modules/pm2/bin/pm2 list",
-    "start-dev-server": "node_modules/pm2/bin/pm2 start src/server/server.js --watch --name vam-server",
-    "stop-dev-server": "node_modules/pm2/bin/pm2 stop vam-server && node_modules/pm2/bin/pm2 delete vam-server",
-    "start-dev-client": "node_modules/pm2/bin/pm2 start webpack-dev-server --name vam-client -- --mode development --config conf/webpack.config.js --open --hot",
-    "stop-dev-client": "node_modules/pm2/bin/pm2 stop vam-client && node_modules/pm2/bin/pm2 delete vam-client",
-    "build-client": "webpack --mode production --config conf/webpack.config.js"
+    "start": "node src/server/server.js"
   },
   "repository": {
     "type": "git",
@@ -50,7 +43,6 @@
     "express": "^4.16.2",
     "mic": "^2.1.2",
     "socket.io": "^2.0.4",
-    "vue": "^2.5.15",
-    "wiring-pi": "^2.2.1"
+    "vue": "^2.5.15"
   }
 }
