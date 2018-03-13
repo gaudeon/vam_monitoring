@@ -12,7 +12,7 @@
 See http://spi-box.co.uk/media/1087/spiboxmanual_1.pdf (alternatively the pdf is included in this repo under docs)
 
 ## Dependencies
-1. wiringPi - made sure this is up to date. See wiringpi.com/download-and-install
+1. wiringPi - we use gpio to watch the pir sensor
 
 ## Software Setup / Startup
 1. npm install
